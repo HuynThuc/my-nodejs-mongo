@@ -18,12 +18,19 @@ const updateBook = async (id, bookData) => {
 
 const deleteBook = async (id) => {
   const book = await bookRepository.deleteBook(id);
-  if (!book) throw new Error('Không xóa');
+  if (!book) throw new Error('Không xóa được ');
+  return book;
+};
+
+const getBooksById = async (id) => {
+  const book = await bookRepository.getBooksById(id);
+  if (!book) throw new Error('Không tìm thấy sách ');
   return book;
 };
 module.exports = {
   createBook,
   getAllBooks,
   updateBook,
-  deleteBook
+  deleteBook,
+  getBooksById
 };

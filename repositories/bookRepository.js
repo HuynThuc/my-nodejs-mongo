@@ -32,10 +32,16 @@ const deleteBook = async (id) => {
   return await Book.findByIdAndDelete(id);
 };
 
+const getBooksById = async (id) => {
+  return await Book.findById(id);
+};
+
+
 
 module.exports = {
   createBook,
   getAllBooks,
   updateBook,
-  deleteBook
+  deleteBook,
+  getBooksById
 };

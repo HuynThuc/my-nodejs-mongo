@@ -45,3 +45,13 @@ exports.deleteBook = async (req, res) => {
     res.status(400).json({ message: 'Lỗi khi xóa sách', error: error.message });
   }
 };
+
+exports.getBooksById = async (req, res) => {
+  try {
+    const book = await bookService.getBooksById(req.params.id);
+    res.json(book);
+  } catch (error) {
+    res.status(400).json({ message: 'Lỗi khi lấy sách', error: error.message });
+  }
+};
+
